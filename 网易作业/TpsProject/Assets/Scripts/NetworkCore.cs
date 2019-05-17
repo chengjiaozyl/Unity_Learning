@@ -14,7 +14,10 @@ public class NetworkCore : MonoBehaviour
     //public string username = "vivid";
     //public string password = "888888";
 
+<<<<<<< HEAD
     
+=======
+>>>>>>> 28ccfdb74e78c3ea66a1fdc54b2b5c7ece8ac7de
     private TcpClient _client;
     private NetworkStream _stream;
     private Thread _thread;
@@ -26,7 +29,11 @@ public class NetworkCore : MonoBehaviour
 
     void Start()
     {
+<<<<<<< HEAD
         messageController = Tps_MessageController.Instance;
+=======
+        messageController = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<Tps_MessageController>();
+>>>>>>> 28ccfdb74e78c3ea66a1fdc54b2b5c7ece8ac7de
     }
 
 
@@ -85,7 +92,10 @@ public class NetworkCore : MonoBehaviour
         while(messageController.SndInfoListCount>0)
         {
             Dictionary<string,string> info = messageController.GetSndInfo();
+<<<<<<< HEAD
             /*
+=======
+>>>>>>> 28ccfdb74e78c3ea66a1fdc54b2b5c7ece8ac7de
             string code = info["code"];
             switch(code)
             {
@@ -102,8 +112,11 @@ public class NetworkCore : MonoBehaviour
                     CloseConnection();
                     break;
             }
+<<<<<<< HEAD
             */
             SendData(Encode(info));
+=======
+>>>>>>> 28ccfdb74e78c3ea66a1fdc54b2b5c7ece8ac7de
         
         }
     }
@@ -142,7 +155,11 @@ public class NetworkCore : MonoBehaviour
                 Dictionary<string, string> rcvMsgDict = Decode(receiveMsg);
                 print("收到消息为:"+rcvMsgDict["code"]);
                 messageController.AddRcvInfoIntoQueue(rcvMsgDict);
+<<<<<<< HEAD
                 //ParseData(rcvMsgDict);
+=======
+                ParseData(rcvMsgDict);
+>>>>>>> 28ccfdb74e78c3ea66a1fdc54b2b5c7ece8ac7de
                 receiveMsg = "";
             }
             catch (Exception e)
@@ -152,7 +169,11 @@ public class NetworkCore : MonoBehaviour
             }
         }
     }
+<<<<<<< HEAD
     /*
+=======
+
+>>>>>>> 28ccfdb74e78c3ea66a1fdc54b2b5c7ece8ac7de
     private void ParseData(Dictionary<string, string> rcvMsgDict)
     {
         string code = rcvMsgDict["code"];
@@ -173,7 +194,11 @@ public class NetworkCore : MonoBehaviour
                 break;
         }
     }
+<<<<<<< HEAD
     */
+=======
+
+>>>>>>> 28ccfdb74e78c3ea66a1fdc54b2b5c7ece8ac7de
     private void SendInitDataRequest()
     {
         print("send init data request");
