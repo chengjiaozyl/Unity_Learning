@@ -46,11 +46,8 @@ public class Tps_ActionController : MonoBehaviour
     private List<Tps_Weapon> weaponContainer;
     private Tps_MessageController messageController;
     private NetworkManager networkManager;
-<<<<<<< HEAD
     
 
-=======
->>>>>>> 28ccfdb74e78c3ea66a1fdc54b2b5c7ece8ac7de
     private float healthTimer;
     private float destroyTimer = 0f;
     private bool isDestroy = false;
@@ -61,11 +58,7 @@ public class Tps_ActionController : MonoBehaviour
         playerControl = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<Tps_PlayerControl>();
         playerHealth = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<Tps_PlayerHealth>();
         playerInventory = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<Tps_PlayerInventory>();
-<<<<<<< HEAD
         messageController = Tps_MessageController.Instance;
-=======
-        messageController = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<Tps_MessageController>();
->>>>>>> 28ccfdb74e78c3ea66a1fdc54b2b5c7ece8ac7de
         anim = this.GetComponent<Animation>();
         enemyHealth = GameObject.FindGameObjectWithTag(Tags.enermy).GetComponent<Tps_EnemyHealth>();
 
@@ -132,11 +125,7 @@ public class Tps_ActionController : MonoBehaviour
         else if (!anim.IsPlaying(reloadAnim))
             StateAnim(playerControl.State);
 
-<<<<<<< HEAD
         SendGameDataToMessageController();
-=======
-        SyncGameData();
->>>>>>> 28ccfdb74e78c3ea66a1fdc54b2b5c7ece8ac7de
 
     }
 
@@ -258,7 +247,6 @@ public class Tps_ActionController : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
     private void SendGameDataToMessageController()
     {
         Dictionary<string, string> info = new Dictionary<string, string>()
@@ -272,13 +260,6 @@ public class Tps_ActionController : MonoBehaviour
         messageController.AddSndInfoIntoQueue(info);
 
     }
-=======
-    private void SyncGameData()
-    {
-        networkManager.SyncGameData(currentBullet, currentChargerBullet, playerHealth.hp, weaponText.text);
-    }
-
->>>>>>> 28ccfdb74e78c3ea66a1fdc54b2b5c7ece8ac7de
     public void AddBullet(int BulletPackageAmount)
     {
         currentChargerBullet += BulletPackageAmount;
